@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - User System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to User Registration</h1>
+    <button onclick="location.href='register.html'">Register User</button>
+    <button onclick="location.href='user-list.html'">Registered Users</button>
+
+    <div id="message"></div>
+
+    <script>
+        $(document).ready(function () {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            if (users.length > 0) {
+                $('#message').text("User(s) registered!");
+            }
+        });
+    </script>
+</body>
+</html>
